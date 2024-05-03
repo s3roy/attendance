@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import Sidebar from '../sidebar';
 
 const Main = styled.main`
-  margin-left: 200px;
-  padding: 20px;
+  width: 86vw;
 `;
 
 interface LayoutProps {

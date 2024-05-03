@@ -24,10 +24,10 @@ const Sidebar: React.FC = () => {
     <SidebarContainer>
       {navItems.map(({ href, Icon, label }) => (
         <Link key={href} href={href} passHref>
-          <NavItem isActive={router.pathname === href}>
+          <NavItem $isActive={router.pathname === href}>
             <Icon
               style={{
-                color: router.pathname === href ? '#FFEB3B' : 'inherit',
+                color: router.pathname === href ? 'color' : 'inherit',
               }}
             />
             <Label>{label}</Label>
