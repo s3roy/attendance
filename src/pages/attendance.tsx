@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import AttendanceSheet from '@/components/attendance/AttendanceSheet'; // Adjust import path as necessary
-import { generateAttendanceData } from '@/utils/attendance'; // Adjust import path as necessary
+import AttendanceSheet from '@/components/attendance/AttendanceSheet';
+import { generateAttendanceData } from '@/utils/attendance';
 import { getDaysInMonth } from '@/utils/days';
+import AttendanceControls from '@/components/attendance/AttendanceFilter';
+import Breadcrumb from '@/components/attendance/Breadcrum';
 
 interface StudentAttendance {
   name: string;
@@ -27,7 +29,7 @@ const AttendancePage: React.FC = () => {
   useEffect(() => {
     if (router.isReady) {
       const currentYear = new Date().getFullYear();
-      const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-indexed, +1 for human-readable format
+      const currentMonth = new Date().getMonth() + 1;
       const monthNumber = month ? parseInt(month as string, 10) : currentMonth;
       const year = session ? parseInt(session as string, 10) : currentYear;
 
@@ -37,18 +39,19 @@ const AttendancePage: React.FC = () => {
     }
   }, [router.isReady, month, session]);
 
-  // Helper to normalize query parameters to string or null
   const normalizeQueryParam = (
     param: string | string[] | undefined
   ): string | null => {
     if (Array.isArray(param)) {
-      return param[0]; // Use the first item if it's an array
+      return param[0];
     }
-    return param || null; // Return the string, or null if undefined
+    return param || null;
   };
 
   return (
-    <div>
+    <div style={{ maxHeight: '100vh', overflow: 'auto' }}>
+      <Breadcrumb />
+      <AttendanceControls />
       {attendanceData.length > 0 && days.length > 0 && (
         <AttendanceSheet
           data={attendanceData}

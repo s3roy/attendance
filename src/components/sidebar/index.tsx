@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { SidebarContainer, NavItem, Icon, Label } from './styles';
+import { SidebarContainer, NavItem, Label } from './StyledSidebar';
 import { MdDashboard } from 'react-icons/md';
 import { PiStudent } from 'react-icons/pi';
 import { TbReportSearch } from 'react-icons/tb';

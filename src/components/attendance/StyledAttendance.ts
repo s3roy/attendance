@@ -45,6 +45,10 @@ export const AttendanceTable = styled.table`
     max-width: 5em;
     word-break: keep-all;
   }
+
+  .editable {
+    padding: 0;
+  }
 `;
 
 export const DayCell = styled.td<DayCellProps>`
@@ -55,4 +59,28 @@ export const StudentName = styled.td`
   color: gray;
   font-weight: bold;
   font-size: 13px;
+`;
+
+export const FiltersContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #fff;
+`;
+
+export const Button = styled.button`
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  width: 10rem;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  background-color: ${(props) => props.color || '#337ab7'};
+  &:hover {
+    opacity: 0.8;
+  }
 `;

@@ -1,7 +1,12 @@
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { IoCloseSharp } from 'react-icons/io5';
-import { AttendanceTable, Card, DayCell, StudentName } from './style';
+import {
+  AttendanceTable,
+  Card,
+  DayCell,
+  StudentName,
+} from './StyledAttendance';
 
 interface StudentAttendance {
   name: string;
